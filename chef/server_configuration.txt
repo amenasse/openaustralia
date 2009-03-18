@@ -1,6 +1,8 @@
 A rough guide to setting up and configuring the openaustralia server:
 
 * Install FreeBSD (I'm using 7.0 currently) (Install ports collection and don't add another user other than root)
+* Update ports tree
+# portsnap fetch update
 * Allow root login over ssh (vi /etc/ssh/sshd_config)
 * Restart sshd: /etc/rc.d/sshd restart
 * Install Rubygems: pkg_add -r ruby18-gems
@@ -20,5 +22,7 @@ A rough guide to setting up and configuring the openaustralia server:
 * Install chef: gem install chef-0.5.x.gem
 * Synchronise the clock a little better than before: ntpdate tick.ucla.edu
 * Ensure that in Capfile, port for ssh is at the default and the user is set to root
-* cap chef
-* cap deploy
+* From the other machine perform the deployment:
+# gem install capistrano
+# cap chef
+# cap deploy
