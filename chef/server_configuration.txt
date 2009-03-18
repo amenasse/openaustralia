@@ -5,6 +5,7 @@ A rough guide to setting up and configuring the openaustralia server:
 * Restart sshd: /etc/rc.d/sshd restart
 * Install Rubygems: pkg_add -r ruby18-gems
 * Upgrade Rubygems:
+# rehash
 # gem update
 # gem update --system
 # mv /usr/local/bin/gem18 /usr/local/bin/gem
