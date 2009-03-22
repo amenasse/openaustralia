@@ -2,7 +2,7 @@
   "recipes": ["openaustralia", "sudo", "ntp", "ssh", "git", "phpmyadmin", "jira", "wordpress", "mediawiki"],
   "authorization": {
     "sudo": {
-      "users": ["matthewl"]
+      "users": ["deploy"]
     }
   },
   "ssh_port": "1111",
