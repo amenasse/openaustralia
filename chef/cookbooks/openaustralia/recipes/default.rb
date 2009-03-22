@@ -8,10 +8,11 @@ require_recipe 'apache'
 require_recipe 'php'
 require_recipe 'mysql'
 
+
 [:production, :test].each do |stage|
   directory node[:openaustralia][stage][:install_path] do
-    owner "matthewl"
-    group "matthewl"
+    owner "deploy"
+    group "deploy"
     mode 0755
     recursive true
   end
@@ -23,8 +24,8 @@ require_recipe 'mysql'
 
   %w{shared releases shared/images/mps shared/images/mpsL shared/rss/mp}.each do |dir|
     directory "#{node[:openaustralia][stage][:install_path]}/#{dir}" do
-      owner "matthewl"
-      group "matthewl"
+      owner "deploy"
+      group "deploy"
       mode 0775
       recursive true
     end
@@ -32,7 +33,7 @@ require_recipe 'mysql'
 
   # Xapian Search directory needs to be writable by www
   directory "#{node[:openaustralia][stage][:install_path]}/shared/searchdb" do
-    owner "matthewl"
+    owner "deploy"
     group "www"
     mode 0775
   end
@@ -40,24 +41,24 @@ require_recipe 'mysql'
   # Configuration for OpenAustralia web app
   template "#{@node[:openaustralia][stage][:install_path]}/shared/general" do
     source "general.erb"
-    owner "matthewl"
-    group "matthewl"
+    owner "deploy"
+    group "deploy"
     mode 0644
     variables :stage_config => @node[:openaustralia][stage]
   end
 
   template "#{@node[:openaustralia][stage][:install_path]}/shared/parser_configuration.yml" do
     source "parser_configuration.yml.erb"
-    owner "matthewl"
-    group "matthewl"
+    owner "deploy"
+    group "deploy"
     mode 0644
     variables :stage_config => @node[:openaustralia][stage]
   end  
 end
 
 directory "/www/secure/html" do
-  owner "matthewl"
-  group "matthewl"
+  owner "deploy"
+  group "deploy"
   mode 0755
   action :create
   recursive true
@@ -129,7 +130,7 @@ cron "dailyupdate" do
   hour 1
   minute 37
   command "HOME=#{@node[:openaustralia][:production][:install_path]}/current/twfy/scripts $HOME/dailyupdate"
-  user "matthewl"
+  user "deploy"
 end
 
 # every week early Sunday grab weekly range of data
@@ -139,7 +140,7 @@ cron "weeklyupdate" do
   hour 4
   minute 23
   command "HOME=#{@node[:openaustralia][:production][:install_path]}/current/twfy/scripts $HOME/weeklyupdate"
-  user "matthewl"
+  user "deploy"
 end
 
 # daily backup of database
@@ -148,7 +149,7 @@ cron "dumpallforbackup" do
   hour 2
   minute 30
   command "HOME=#{@node[:openaustralia][:production][:install_path]}/current/twfy/scripts $HOME/dumpallforbackup"
-  user "matthewl"
+  user "deploy"
 end
 
 # Morning update (Australian Hansard is supposed to be up by 9am the next working day)
@@ -158,7 +159,7 @@ cron "morningupdate" do
   minute 5
   weekday "Mon-Fri"
   command "HOME=#{@node[:openaustralia][:production][:install_path]}/current/twfy/scripts VERBOSE=true $HOME/morningupdate"
-  user "matthewl"
+  user "deploy"
 end
 
 # Email updates (Going at 10am to give me time to fix things if necessary)
@@ -168,5 +169,5 @@ cron "alertmailer" do
   hour 10
   minute 0
   command "HOME=#{@node[:openaustralia][:production][:install_path]}/current/twfy/scripts php -q alertmailer.php"
-  user "matthewl"
+  user "deploy"
 end
