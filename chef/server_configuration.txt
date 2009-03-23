@@ -5,6 +5,7 @@ A rough guide to setting up and configuring the openaustralia server:
 # portsnap fetch update
 * Allow root login over ssh (vi /etc/ssh/sshd_config)
 * Restart sshd: /etc/rc.d/sshd restart
+* Need to install java by hand due to license agreement (see chef/cookbooks/java/recipes/default.rb)
 * Install Rubygems: pkg_add -r ruby18-gems
 * Upgrade Rubygems:
 # rehash
