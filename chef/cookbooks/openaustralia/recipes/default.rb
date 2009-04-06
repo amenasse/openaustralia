@@ -74,7 +74,10 @@ package "ruby-iconv"
 package "ImageMagick"
 gem_package "rmagick"
 gem_package "mechanize" do
-  version "0.8.5"
+  version "0.9.2"
+end
+gem_package "hpricot" do
+  version "0.8.1"
 end
 gem_package "htmlentities"
 gem_package "log4r"
