@@ -12,7 +12,7 @@ A rough guide to setting up and configuring the openaustralia server:
 # rehash
 # gem update
 # gem update --system
-# mv /usr/local/bin/gem18 /usr/local/bin/gem
+# mv /usr/local/bin/gem18 /usr/local/bin/gem (Not required if using 7.1)
 * Install Chef dependencies:
 # gem sources -a http://gems.opscode.com
 # gem install chef --version 0.5.4 (make sure that there is no chef-0.5.5.gem in the current directory)
