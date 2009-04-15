@@ -1,6 +1,7 @@
 A rough guide to setting up and configuring the openaustralia server:
 
 * Install FreeBSD (I'm using 7.0 currently) (Install ports collection and don't add another user other than root)
+* Ensure you allocate plenty of space for the / slice (2-3 GB at least).
 * Update ports tree
 # portsnap fetch update
 * Allow root login over ssh (vi /etc/ssh/sshd_config)
