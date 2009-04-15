@@ -9,6 +9,14 @@ require_recipe 'php'
 require_recipe 'mysql'
 
 
+group "deploy"
+
+user "deploy" do
+  comment "Deploy User"
+  home "/home/deploy"
+  gid "deploy"
+end
+
 [:production, :test].each do |stage|
   directory node[:openaustralia][stage][:install_path] do
     owner "deploy"
