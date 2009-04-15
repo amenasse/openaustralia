@@ -19,6 +19,8 @@ A rough guide to setting up and configuring the openaustralia server:
 * Create the chef gem on another machine:
 # git clone git://github.com/mlandauer/chef.git
 * Install the following gems required to build chef: cucumber,rspec,merb-core (gem install)
+* Build the chef client/solo gem
+# cd chef
 # rake gem
 * copy it here: scp chef-0.5.x.gem root@test.org:
 * Install chef: gem install chef-0.5.x.gem
