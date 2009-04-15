@@ -1,8 +1,10 @@
 include_recipe "apache"
 
-package "www/wordpress" do
-  source "ports"
-end
+# Currently wordpress must be installed manually, as the package provider doesn't support multiple packages with the
+# same name.
+#package "www/wordpress" do
+#  source "ports"
+#end
 
 template "/usr/local/www/data/wordpress/wp-config.php" do
   source "wp-config.php.erb"
@@ -25,7 +27,8 @@ end
   
 apache_site "blog"
 
-# Install Greenway 3c theme
-remote_directory "/usr/local/www/data/wordpress/wp-content/themes/greenway-3c" do
-  source "greenway-3c"
-end
+# Install Greenway 3c theme.
+# Currently this has to be done manually, due to chef-solo not handling the remote_directory resource correctly
+#remote_directory "/usr/local/www/data/wordpress/wp-content/themes/greenway-3c" do
+#  source "default/greenway-3c"
+#end

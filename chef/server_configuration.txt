@@ -27,3 +27,6 @@ A rough guide to setting up and configuring the openaustralia server:
 # gem install capistrano
 # cap chef
 # cap deploy
+
+* Note that some steps for wordpress will have to done manually due to bugs or missing features in chef.
+  See the recipe for instructions: cookbooks/wordpress/recipes/default.rb
