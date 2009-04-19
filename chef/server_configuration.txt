@@ -31,5 +31,7 @@ A rough guide to setting up and configuring the openaustralia server:
 # cap chef
 # cap deploy
 
-* Note that some steps for wordpress will have to done manually due to bugs or missing features in chef.
-  See the recipe for instructions: cookbooks/wordpress/recipes/default.rb
+* Note that some steps will have to done manually due to bugs or missing features in chef, or issues with particular packages.
+  See the recipies for instructions: 
+    cookbooks/wordpress/recipes/default.rb
+    cookbooks/java/recipes/default.rb

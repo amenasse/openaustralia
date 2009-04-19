@@ -3,7 +3,7 @@
 # and install it with "pkg_add diablo-jdk-freebsd7.i386.1.6.0.07.02.tbz"
 
 package "javavmwrapper"
-package "diablo-jdk16"
+#package "diablo-jdk16"
 
 # Seems to be missing from the packages. WTF?
 package "apache-ant" do
