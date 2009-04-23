@@ -81,6 +81,8 @@ gem_package "activesupport"
 package "ruby-iconv"
 package "ImageMagick"
 gem_package "rmagick"
+gem_package "hoe"
+package "libxslt"
 gem_package "mechanize" do
   version "0.9.2"
 end
