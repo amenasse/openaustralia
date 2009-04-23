@@ -87,7 +87,7 @@ gem_package "mechanize" do
   version "0.9.2"
 end
 gem_package "hpricot" do
-  version "0.8.1"
+  version "0.6"
 end
 gem_package "htmlentities"
 gem_package "log4r"
